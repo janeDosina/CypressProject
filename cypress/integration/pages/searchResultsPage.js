@@ -1,3 +1,5 @@
+/// <reference types="cypress" />
+
 const searchResultsPage = {
 
   priceFilterContainer: "#filter_price [class*='bui-checkbox__label filter_item css-checkbox']",
@@ -12,7 +14,7 @@ const searchResultsPage = {
     cy.get(this.starsRateContainer + " [data-value='" + rate + "']")
       .click();
     cy.get(this.overlayContainer)
-      .should("not.exist");
+      .should('not.exist');
   },
 
   selectPriceOption(price) {
@@ -22,6 +24,9 @@ const searchResultsPage = {
           elem.parent().click();
         }
       });
+    
+    cy.get(this.overlayContainer)
+      .should('not.exist');
   },
 
   checkPriceWasSelected(price) {
